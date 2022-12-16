@@ -2,6 +2,12 @@
 
 This is a simple API that will return a list of suggestions based on a given param.
 
+## Built with
+
+- [Go](https://golang.org/) - The language used
+- [MongoDB](https://www.mongodb.com/) - The database used
+- [Go Fiber](https://docs.gofiber.io/) - The web framework used
+
 ## Installation
 
 Requires [Go](https://golang.org/doc/install) to run.
@@ -22,12 +28,14 @@ The API has a few endpoints:
         1. `email` - The email of the user
         2. `password` - The password of the user
     - Returns a message and the users API key on success
+    - Hashes the password using [bcrypt](https://godoc.org/golang.org/x/crypto/bcrypt)
 ---
 2. `POST /login` - This will login a user
     1. Body:
         1. `email` - The email of the user
         2. `password` - The password of the user
     - Returns a message and the users API key on success
+    - Hashes the password using [bcrypt](https://godoc.org/golang.org/x/crypto/bcrypt)
 ---
 3. `GET /suggest/:param` - This will return a list of suggestions based on the given param
     1. Params:
