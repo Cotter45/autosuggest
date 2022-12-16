@@ -46,3 +46,7 @@ The API has a few endpoints:
         2. `apikey` - The API key of the user
 
 
+
+https://user-images.githubusercontent.com/80602015/208207903-1ec52467-77f0-4db1-91b2-2427bf63c72a.mov
+
+
