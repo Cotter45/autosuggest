@@ -140,6 +140,14 @@ func main() {
 
 	// Create a Fiber app
 	app := fiber.New()
+	app.Use(cache.New())
+	app.Use(compress.New(compress.Config{
+			Level: compress.LevelBestSpeed, // 1
+	}))
+	app.Use(cors.New())
+	app.Use(etag.New())
+	app.Use(recover.New())
+	app.Use(logger.New())
 	// middleware to check for api key
 	app.Use(func(c *fiber.Ctx) error {
 		if c.Path() == "/login" || c.Path() == "/register" {
@@ -180,14 +188,6 @@ func main() {
 
 		return c.Next()
 	})
-	app.Use(cache.New())
-	app.Use(compress.New(compress.Config{
-			Level: compress.LevelBestSpeed, // 1
-	}))
-	app.Use(cors.New())
-	app.Use(etag.New())
-	app.Use(recover.New())
-	app.Use(logger.New())
 
 	app.Post("/login" , func(c *fiber.Ctx) error {
 		var user User

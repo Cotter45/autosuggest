@@ -45,4 +45,3 @@ The API has a few endpoints:
         1. `user` - The email of the user
         2. `apikey` - The API key of the user
 
-
